@@ -1,0 +1,77 @@
+#include<stdio.h>
+int top=-1;
+int s[50];
+int size;
+void push();
+void pop();
+void display();
+void main()
+{
+	int c;
+	printf("Enter the size of the array: ");
+	scanf("%d",&size);
+	while(1)
+	{
+		printf("\n\t1.Push\n\t2.Pop\n\t3.Display\n\t4.Exit");
+		printf("\n\tEnter your choice: ");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1:
+			push();
+			break;
+			case 2:
+			pop();
+			break;
+			case 3:
+			display();
+			break;
+			case 4:
+			break;
+			default:
+			printf("Invalid choice");
+		}
+		
+	}	
+}
+
+void push()
+{
+	int value;
+	printf("Enter the value: ");
+	scanf("%d",&value);
+	if(top==size-1)
+	{
+		printf("Stack is full");
+	}
+	
+	else
+	{
+		top++;
+		s[top]=value;
+	}
+	
+}
+
+
+void pop()
+{
+	if(top==-1)
+	{
+		printf("The stack is empty");
+	}
+	
+	else
+	{
+		printf("%d",s[top]);
+		top--;
+	}
+}
+
+void display()
+{
+	for(int i=0;i<=top;i++)
+	{
+		printf("%d",s[i]);
+	}
+}
