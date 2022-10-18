@@ -1,0 +1,89 @@
+#include<stdio.h>
+int array[50];
+int front,rear=-1;
+int size;
+void dequeue();
+void enqueue();
+void display();
+void main()
+{
+	int c;
+	printf("Enter the size of the queue: ");
+	scanf("%d",&size);
+	while(1)
+	{
+		printf("\n\t1.Enqueue\n\t2.Dequeue\n\t3.Display\n\t4.Exit");
+		printf("\n\tEnter your choice: ");
+		scanf("%d",&c);
+		switch(c)
+		{
+			case 1:
+			enqueue();
+			break;
+			case 2:
+			dequeue();
+			break;
+			case 3:
+			display();
+			break;
+			case 4:
+			break;
+			default:
+			printf("Invalid choice");
+		}
+	}	
+}
+
+void enqueue()
+{
+	int item;
+	printf("Enter the element: ");
+	scanf("%d",&item);
+	if(rear==size-1)
+	{
+		printf("Queue is full");
+	}
+	else if(front==-1&&rear==-1)
+	{
+		front=rear=0;
+		array[rear]=item;
+	}
+	else
+	{
+		rear++;
+		array[rear]=item;
+	}
+}
+
+void dequeue()
+{
+	if(front=rear==-1)
+	{
+		printf("Queue is empty");
+	}
+	else if(rear==front)
+	{
+		printf("The deleted item is %d",array[front]);
+		front=rear=-1;
+	}
+	else
+	{
+		printf("The deleted item is %d",array[front]);
+		front++;
+	}
+}
+
+void display()
+{
+	if(front==-1&&rear==-1)
+	{
+		printf("Queue is empty");
+	}
+	else
+	{
+		for(int i=front;i<=rear;i++)
+		{
+			printf("%d",array[i]);
+		}
+	}
+}
