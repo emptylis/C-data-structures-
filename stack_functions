@@ -8,9 +8,10 @@ void display();
 void main()
 {
 	int c;
+	flag=0;
 	printf("Enter the size of the array: ");
 	scanf("%d",&size);
-	while(1)
+	while(flag!=1)
 	{
 		printf("\n\t1.Push\n\t2.Pop\n\t3.Display\n\t4.Exit");
 		printf("\n\tEnter your choice: ");
@@ -27,6 +28,7 @@ void main()
 			display();
 			break;
 			case 4:
+			flag=1
 			break;
 			default:
 			printf("Invalid choice");
@@ -75,3 +77,4 @@ void display()
 		printf("%d",s[i]);
 	}
 }
+
